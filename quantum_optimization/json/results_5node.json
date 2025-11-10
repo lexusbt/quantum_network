@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-10-20T22:32:55.077664",
+  "network_size": 5,
+  "n_qubits": 14,
+  "dijkstra_fidelity": 1.308171972586047,
+  "qaoa_cost": 0.46039383773434334,
+  "qaoa_time": 0.8292417526245117,
+  "qaoa_iterations": 30
+}
