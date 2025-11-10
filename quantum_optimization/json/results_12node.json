@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-10-20T22:42:16.927080",
+  "network_size": 12,
+  "n_edges": 19,
+  "n_demands": 1,
+  "n_qubits": 19,
+  "dijkstra_fidelity": 0.6584772552324031,
+  "dijkstra_path": [
+    0,
+    4,
+    9,
+    5
+  ],
+  "qaoa_cost": 0.6149679569409133,
+  "qaoa_time": 2.8117098808288574,
+  "qaoa_iterations": 33,
+  "note": "Single demand scenario for memory constraints"
+}
