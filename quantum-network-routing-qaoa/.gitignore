@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data files (LARGE - don't commit to git)
+data/raw/*.txt
+data/raw/*.gz
+data/raw/*.csv
+data/raw/*.graphml
+data/processed/*.pkl
+data/processed/*.pickle
+data/qubo/*.npy
+
+# Instances (can be large)
+instances/**/*.pkl
+instances/**/*.npy
+
+# Results
+results/**/*.png
+results/**/*.pdf
+results/**/*.csv
+
+# Environment
+.env
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+*.cache
+
+# Conda
+.conda/
