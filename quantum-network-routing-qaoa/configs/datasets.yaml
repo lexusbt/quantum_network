@@ -1,0 +1,131 @@
+# SNAP Dataset Configuration for Quantum Network Routing
+
+datasets:
+  ca-GrQc:
+    name: "General Relativity Collaboration Network"
+    filename: "ca-GrQc.txt"
+    enabled: true
+    priority: high
+    nodes: 5242
+    edges: 14496
+    subgraph_sizes: [10, 15, 20]
+    num_instances: 40
+    
+  email-Enron:
+    name: "Email Communication Network"
+    filename: "email-Enron.txt"
+    enabled: true
+    priority: high
+    nodes: 36692
+    edges: 183831
+    subgraph_sizes: [10, 15, 20, 25]
+    num_instances: 40
+    
+  p2p-Gnutella08:
+    name: "Gnutella P2P Network"
+    filename: "p2p-Gnutella08.txt"
+    enabled: true
+    priority: medium
+    nodes: 6301
+    edges: 20777
+    subgraph_sizes: [10, 15, 20]
+    num_instances: 40
+    
+  ca-CondMat:
+    name: "Condensed Matter Collaboration"
+    filename: "ca-CondMat.txt"
+    enabled: true
+    priority: medium
+    nodes: 23133
+    edges: 93497
+    subgraph_sizes: [15, 20, 25]
+    num_instances: 40
+    
+  ca-HepPh:
+    name: "High Energy Physics Collaboration"
+    filename: "ca-HepPh.txt"
+    enabled: true
+    priority: low
+    nodes: 12008
+    edges: 118521
+    subgraph_sizes: [15, 20, 25, 30]
+    num_instances: 40
+
+# Instance Generation Parameters
+instance_generation:
+  total_instances: 200
+  
+  # Split ratios
+  train_split: 0.70  # 140 instances
+  val_split: 0.15    # 30 instances
+  test_split: 0.15   # 30 instances
+  
+  # Path length distribution
+  path_lengths:
+    K3: 40   # 3-hop paths
+    K4: 60   # 4-hop paths
+    K5: 60   # 5-hop paths
+    K6: 40   # 6-hop paths
+  
+  # Subgraph size distribution
+  node_counts:
+    n10: 50   # 10-node subgraphs
+    n15: 50   # 15-node subgraphs
+    n20: 50   # 20-node subgraphs
+    n25: 30   # 25-node subgraphs
+    n30: 20   # 30-node subgraphs
+  
+  # Sampling strategies
+  sampling_methods:
+    - random_walk
+    - high_centrality
+    - bfs_locality
+  
+  # Source-destination selection
+  min_hop_distance: 3
+  max_hop_distance: null  # null = no limit
+
+# QUBO Parameters
+qubo_params:
+  # Penalty weights (from your research)
+  penalty_weights:
+    A: 0.47   # One-node-per-timestep constraint
+    B: 1.0    # Valid edge transitions
+    C: 1.0    # Boundary conditions
+  
+  # Edge weight schemes
+  edge_weight_schemes:
+    uniform:
+      enabled: true
+      weight: 1.0
+    random:
+      enabled: true
+      min: 0.5
+      max: 2.0
+      distribution: uniform
+    betweenness:
+      enabled: true
+      normalize: true
+    latency_based:
+      enabled: false
+      min_latency_ms: 1
+      max_latency_ms: 100
+
+# Validation Constraints
+constraints:
+  max_qubits: 500  # NISQ compatibility
+  min_problem_size: 30   # K * n_nodes
+  max_problem_size: 180  # K * n_nodes
+  
+  # Ensure classical solution exists
+  verify_connectivity: true
+  run_dijkstra_baseline: true
+
+# Output Settings
+output:
+  formats:
+    - pickle  # Full Python objects
+    - json    # Metadata only
+    - numpy   # QUBO matrices
+  compression: true
+  create_index: true

@@ -53,3 +53,21 @@ desktop.ini
 
 # Conda
 .conda/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Models and checkpoints
+models/*.pkl
+models/*.joblib
+*.ckpt
+
+# MLflow
+mlruns/
+
+# Weights & Biases
+wandb/

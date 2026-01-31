@@ -1,0 +1,127 @@
+# Experiment Configuration for Quantum Network Routing
+
+experiment:
+  name: "qaoa_network_routing"
+  version: "1.0.0"
+  description: "ML-enhanced QAOA for network routing optimization"
+  random_seed: 42
+  
+  author: "Lexus"
+  institution: "Meharry Medical College"
+  project: "Capstone - Machine Learning-Enhanced QAOA"
+
+# QAOA Algorithm Parameters
+qaoa:
+  # Circuit parameters
+  max_layers: 5
+  min_layers: 1
+  
+  # Optimization
+  optimizer: "COBYLA"
+  max_iterations: 100
+  tolerance: 1e-6
+  
+  # Initial point strategies
+  initial_point: "random"  # Options: random, zeros, warm_start
+  
+  # Parameter bounds
+  beta_bounds: [0, 3.14159]  # Mixer parameters
+  gamma_bounds: [0, 6.28318]  # Cost parameters
+  
+  # Execution
+  shots: 1024
+  backend: "qasm_simulator"  # Options: qasm_simulator, statevector_simulator, real_device
+
+# XGBoost ML Optimizer Configuration
+ml_optimizer:
+  enabled: true
+  
+  # Model parameters
+  n_estimators: 100
+  max_depth: 6
+  learning_rate: 0.1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  
+  # Training
+  objective: "reg:squarederror"
+  eval_metric: "rmse"
+  early_stopping_rounds: 10
+  
+  # Features for prediction
+  graph_features:
+    - n_nodes
+    - n_edges
+    - avg_degree
+    - diameter
+    - avg_shortest_path
+    - clustering_coefficient
+    
+  problem_features:
+    - path_length_k
+    - source_centrality
+    - dest_centrality
+    - penalty_weight_a
+    
+  # Target: optimal QAOA parameters
+  targets:
+    - optimal_beta
+    - optimal_gamma
+    - approximation_ratio
+    
+  # Cross-validation
+  cv_folds: 5
+  test_size: 0.2
+
+# Classical Baselines for Comparison
+baselines:
+  dijkstra:
+    enabled: true
+    
+  bellman_ford:
+    enabled: false
+    
+  a_star:
+    enabled: false
+    heuristic: "euclidean"
+
+# Performance Metrics
+metrics:
+  # Primary metrics
+  approximation_ratio: true  # QAOA solution / Classical optimal
+  parameter_prediction_error: true  # MAE of predicted vs actual params
+  runtime: true
+  
+  # Secondary metrics
+  success_probability: true  # Probability of finding optimal
+  convergence_iterations: true
+  
+  # Resource usage
+  gate_count: true
+  circuit_depth: true
+
+# Paths (cross-platform compatible)
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_qubo: "data/qubo"
+  instances_train: "instances/train"
+  instances_val: "instances/validation"
+  instances_test: "instances/test"
+  results: "results"
+  models: "models"
+  logs: "logs"
+
+# Logging Configuration  
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/experiment.log"
+  console: true
+
+# Experiment Tracking
+tracking:
+  enabled: true
+  backend: "local"  # Options: local, mlflow, wandb
+  save_frequency: 10  # Save every N instances
+  checkpoint: true
