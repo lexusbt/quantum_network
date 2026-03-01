@@ -31,16 +31,6 @@ datasets:
     subgraph_sizes: [10, 15, 20]
     num_instances: 40
     
-  ca-CondMat:
-    name: "Condensed Matter Collaboration"
-    filename: "ca-CondMat.txt"
-    enabled: true
-    priority: medium
-    nodes: 23133
-    edges: 93497
-    subgraph_sizes: [15, 20, 25]
-    num_instances: 40
-    
   ca-HepPh:
     name: "High Energy Physics Collaboration"
     filename: "ca-HepPh.txt"

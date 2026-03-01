@@ -1,11 +1,55 @@
 # Experiment Configuration for Quantum Network Routing
 
+
+# SNAP Datasets
+datasets:
+  ca-GrQc:
+    name: "General Relativity Collaboration Network"
+    filename: "ca-GrQc.txt"
+    enabled: true    # ✓ You have this
+    priority: high
+    nodes: 5242
+    edges: 14496
+    subgraph_sizes: [10, 15, 20]
+    num_instances: 40
+
+  email-Enron:
+    name: "Email Communication Network"
+    filename: "email-Enron.txt"
+    enabled: true    # ✓ You have this
+    priority: high
+    nodes: 36692
+    edges: 183831
+    subgraph_sizes: [10, 15, 20, 25]
+    num_instances: 40
+
+  p2p-Gnutella08:
+    name: "Gnutella P2P Network"
+    filename: "p2p-Gnutella08.txt"
+    enabled: true    # ✓ You have this
+    priority: medium
+    nodes: 6301
+    edges: 20777
+    subgraph_sizes: [10, 15, 20]
+    num_instances: 40
+
+  ca-HepPh:
+    name: "High Energy Physics Collaboration"
+    filename: "ca-HepPh.txt"
+    enabled: false   # ✗ Disabled - not downloaded
+    priority: low
+    nodes: 12008
+    edges: 118521
+    subgraph_sizes: [15, 20, 25, 30]
+    num_instances: 40
+
+
 experiment:
   name: "qaoa_network_routing"
   version: "1.0.0"
   description: "ML-enhanced QAOA for network routing optimization"
   random_seed: 42
-  
+
   author: "Lexus"
   institution: "Meharry Medical College"
   project: "Capstone - Machine Learning-Enhanced QAOA"
@@ -15,19 +59,19 @@ qaoa:
   # Circuit parameters
   max_layers: 5
   min_layers: 1
-  
+
   # Optimization
   optimizer: "COBYLA"
   max_iterations: 100
   tolerance: 1e-6
-  
+
   # Initial point strategies
   initial_point: "random"  # Options: random, zeros, warm_start
-  
+
   # Parameter bounds
   beta_bounds: [0, 3.14159]  # Mixer parameters
   gamma_bounds: [0, 6.28318]  # Cost parameters
-  
+
   # Execution
   shots: 1024
   backend: "qasm_simulator"  # Options: qasm_simulator, statevector_simulator, real_device
@@ -35,19 +79,19 @@ qaoa:
 # XGBoost ML Optimizer Configuration
 ml_optimizer:
   enabled: true
-  
+
   # Model parameters
   n_estimators: 100
   max_depth: 6
   learning_rate: 0.1
   subsample: 0.8
   colsample_bytree: 0.8
-  
+
   # Training
   objective: "reg:squarederror"
   eval_metric: "rmse"
   early_stopping_rounds: 10
-  
+
   # Features for prediction
   graph_features:
     - n_nodes
@@ -56,19 +100,19 @@ ml_optimizer:
     - diameter
     - avg_shortest_path
     - clustering_coefficient
-    
+
   problem_features:
     - path_length_k
     - source_centrality
     - dest_centrality
     - penalty_weight_a
-    
+
   # Target: optimal QAOA parameters
   targets:
     - optimal_beta
     - optimal_gamma
     - approximation_ratio
-    
+
   # Cross-validation
   cv_folds: 5
   test_size: 0.2
@@ -77,10 +121,10 @@ ml_optimizer:
 baselines:
   dijkstra:
     enabled: true
-    
+
   bellman_ford:
     enabled: false
-    
+
   a_star:
     enabled: false
     heuristic: "euclidean"
@@ -91,11 +135,11 @@ metrics:
   approximation_ratio: true  # QAOA solution / Classical optimal
   parameter_prediction_error: true  # MAE of predicted vs actual params
   runtime: true
-  
+
   # Secondary metrics
   success_probability: true  # Probability of finding optimal
   convergence_iterations: true
-  
+
   # Resource usage
   gate_count: true
   circuit_depth: true
@@ -112,7 +156,7 @@ paths:
   models: "models"
   logs: "logs"
 
-# Logging Configuration  
+# Logging Configuration
 logging:
   level: "INFO"  # DEBUG, INFO, WARNING, ERROR
   format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

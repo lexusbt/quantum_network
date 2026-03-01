@@ -1,0 +1,51 @@
+{
+  "instance_id": "instance_0087",
+  "dataset_name": "email-Enron",
+  "n_nodes": 25,
+  "n_edges": 40,
+  "source": 19,
+  "dest": 22,
+  "K": 3,
+  "n_qubits": 100,
+  "classical_optimal_length": 3,
+  "classical_optimal_path": [
+    19,
+    13,
+    3,
+    22
+  ],
+  "seed": 129,
+  "graph_features": {
+    "n_nodes": 25.0,
+    "n_edges": 40.0,
+    "density": 0.13333333333333333,
+    "clustering_coefficient": 0.4615238095238095,
+    "transitivity": 0.43548387096774194,
+    "avg_degree": 3.2,
+    "diameter": 9.0,
+    "radius": 5.0,
+    "avg_shortest_path": 3.72,
+    "avg_betweenness_centrality": 0.1182608695652174,
+    "max_betweenness_centrality": 0.5990338164251207,
+    "avg_closeness_centrality": 0.28486140702092405,
+    "avg_degree_centrality": 0.1333333333333333,
+    "degree_variance": 2.880000000000001,
+    "degree_skewness": 1.1097648093622199,
+    "max_degree": 8.0,
+    "min_degree": 1.0,
+    "edge_connectivity": 1.0,
+    "node_connectivity": 1.0,
+    "algebraic_connectivity": 0.06541841683720617
+  },
+  "routing_features": {
+    "path_length_k": 3.0,
+    "shortest_path_length": 3.0,
+    "k_over_shortest": 1.0,
+    "source_degree": 5.0,
+    "dest_degree": 3.0,
+    "source_centrality": 0.20833333333333331,
+    "dest_centrality": 0.125,
+    "hop_distance": 3.0,
+    "num_alternative_paths": 3.0
+  }
+}

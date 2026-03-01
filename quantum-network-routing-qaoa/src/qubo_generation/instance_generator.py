@@ -273,11 +273,38 @@ class InstanceGenerator:
         # Save QUBO matrix (numpy)
         np.save(temp_dir / f"{instance_id}_qubo.npy", Q)
         
-        # Save metadata (JSON)
-        metadata_json = {k: v for k, v in instance.items() 
-                        if k not in ['graph_features', 'routing_features', 'qubo_metadata']}
-        metadata_json['graph_features'] = {k: float(v) for k, v in instance['graph_features'].items()}
-        metadata_json['routing_features'] = {k: float(v) for k, v in instance['routing_features'].items()}
+        # Save metadata (JSON) - FIX: Convert numpy types to Python types
+        metadata_json = {}
+        
+        # Convert top-level metadata
+        for k, v in instance.items():
+            if k not in ['graph_features', 'routing_features', 'qubo_metadata']:
+                if isinstance(v, np.integer):
+                    metadata_json[k] = int(v)
+                elif isinstance(v, np.floating):
+                    metadata_json[k] = float(v)
+                elif isinstance(v, np.ndarray):
+                    metadata_json[k] = v.tolist()
+                elif isinstance(v, list):
+                    # Handle lists that might contain numpy types
+                    metadata_json[k] = [int(x) if isinstance(x, np.integer) else 
+                                    float(x) if isinstance(x, np.floating) else x 
+                                    for x in v]
+                else:
+                    metadata_json[k] = v
+        
+        # Convert nested dictionaries (features)
+        if 'graph_features' in instance:
+            metadata_json['graph_features'] = {
+                k: float(v) if isinstance(v, (np.floating, np.integer)) else v 
+                for k, v in instance['graph_features'].items()
+            }
+        
+        if 'routing_features' in instance:
+            metadata_json['routing_features'] = {
+                k: float(v) if isinstance(v, (np.floating, np.integer)) else v 
+                for k, v in instance['routing_features'].items()
+            }
         
         with open(temp_dir / f"{instance_id}_metadata.json", 'w') as f:
             json.dump(metadata_json, f, indent=2)

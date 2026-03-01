@@ -1,0 +1,52 @@
+{
+  "instance_id": "instance_0042",
+  "dataset_name": "ca-GrQc",
+  "n_nodes": 20,
+  "n_edges": 70,
+  "source": 17,
+  "dest": 10,
+  "K": 4,
+  "n_qubits": 100,
+  "classical_optimal_length": 4,
+  "classical_optimal_path": [
+    17,
+    15,
+    1,
+    11,
+    10
+  ],
+  "seed": 84,
+  "graph_features": {
+    "n_nodes": 20.0,
+    "n_edges": 70.0,
+    "density": 0.3684210526315789,
+    "clustering_coefficient": 0.8769444444444445,
+    "transitivity": 0.9200743494423792,
+    "avg_degree": 7.0,
+    "diameter": 4.0,
+    "radius": 2.0,
+    "avg_shortest_path": 2.457894736842105,
+    "avg_betweenness_centrality": 0.0809941520467836,
+    "max_betweenness_centrality": 0.567251461988304,
+    "avg_closeness_centrality": 0.4167668920986295,
+    "avg_degree_centrality": 0.3684210526315789,
+    "degree_variance": 11.8,
+    "degree_skewness": -0.3700566799192259,
+    "max_degree": 11.0,
+    "min_degree": 2.0,
+    "edge_connectivity": 1.0,
+    "node_connectivity": 1.0,
+    "algebraic_connectivity": 0.09829090808276016
+  },
+  "routing_features": {
+    "path_length_k": 4.0,
+    "shortest_path_length": 4.0,
+    "k_over_shortest": 1.0,
+    "source_degree": 3.0,
+    "dest_degree": 10.0,
+    "source_centrality": 0.15789473684210525,
+    "dest_centrality": 0.5263157894736842,
+    "hop_distance": 4.0,
+    "num_alternative_paths": 1.0
+  }
+}

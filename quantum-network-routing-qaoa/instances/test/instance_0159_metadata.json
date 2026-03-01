@@ -1,0 +1,51 @@
+{
+  "instance_id": "instance_0159",
+  "dataset_name": "ca-HepPh",
+  "n_nodes": 20,
+  "n_edges": 118,
+  "source": 5,
+  "dest": 0,
+  "K": 6,
+  "n_qubits": 140,
+  "classical_optimal_length": 3,
+  "classical_optimal_path": [
+    5,
+    13,
+    8,
+    0
+  ],
+  "seed": 201,
+  "graph_features": {
+    "n_nodes": 20.0,
+    "n_edges": 118.0,
+    "density": 0.6210526315789474,
+    "clustering_coefficient": 0.8916666666666668,
+    "transitivity": 0.9105058365758755,
+    "avg_degree": 11.8,
+    "diameter": 3.0,
+    "radius": 2.0,
+    "avg_shortest_path": 1.4210526315789473,
+    "avg_betweenness_centrality": 0.023391812865497075,
+    "max_betweenness_centrality": 0.10526315789473684,
+    "avg_closeness_centrality": 0.7379855217938462,
+    "avg_degree_centrality": 0.6210526315789473,
+    "degree_variance": 26.76,
+    "degree_skewness": -1.109848828336933,
+    "max_degree": 16.0,
+    "min_degree": 1.0,
+    "edge_connectivity": 1.0,
+    "node_connectivity": 1.0,
+    "algebraic_connectivity": 0.9763927514040918
+  },
+  "routing_features": {
+    "path_length_k": 6.0,
+    "shortest_path_length": 3.0,
+    "k_over_shortest": 2.0,
+    "source_degree": 3.0,
+    "dest_degree": 1.0,
+    "source_centrality": 0.15789473684210525,
+    "dest_centrality": 0.05263157894736842,
+    "hop_distance": 3.0,
+    "num_alternative_paths": 4162.0
+  }
+}

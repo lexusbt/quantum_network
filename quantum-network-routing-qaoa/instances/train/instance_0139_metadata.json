@@ -1,0 +1,52 @@
+{
+  "instance_id": "instance_0139",
+  "dataset_name": "p2p-Gnutella08",
+  "n_nodes": 20,
+  "n_edges": 20,
+  "source": 11,
+  "dest": 3,
+  "K": 5,
+  "n_qubits": 120,
+  "classical_optimal_length": 4,
+  "classical_optimal_path": [
+    11,
+    1,
+    8,
+    14,
+    3
+  ],
+  "seed": 181,
+  "graph_features": {
+    "n_nodes": 20.0,
+    "n_edges": 20.0,
+    "density": 0.10526315789473684,
+    "clustering_coefficient": 0.0,
+    "transitivity": 0,
+    "avg_degree": 2.0,
+    "diameter": 11.0,
+    "radius": 6.0,
+    "avg_shortest_path": 5.094736842105263,
+    "avg_betweenness_centrality": 0.22748538011695904,
+    "max_betweenness_centrality": 0.5263157894736842,
+    "avg_closeness_centrality": 0.20203001105086799,
+    "avg_degree_centrality": 0.10526315789473684,
+    "degree_variance": 1.4,
+    "degree_skewness": 1.811044831561107,
+    "max_degree": 6.0,
+    "min_degree": 1.0,
+    "edge_connectivity": 1.0,
+    "node_connectivity": 1.0,
+    "algebraic_connectivity": 0.035151837406249276
+  },
+  "routing_features": {
+    "path_length_k": 5.0,
+    "shortest_path_length": 4.0,
+    "k_over_shortest": 1.25,
+    "source_degree": 6.0,
+    "dest_degree": 2.0,
+    "source_centrality": 0.3157894736842105,
+    "dest_centrality": 0.10526315789473684,
+    "hop_distance": 4.0,
+    "num_alternative_paths": 1.0
+  }
+}

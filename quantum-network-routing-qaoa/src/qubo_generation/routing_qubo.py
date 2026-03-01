@@ -198,7 +198,8 @@ class RoutingQUBO:
         
         # Get set of edges
         edges = set(G.edges())
-        edges.update((v, u) for u, v in edges)  # Add reverse edges
+        reverse_edges = {(v, u) for u, v in edges}  # Create reverse edges separately
+        edges.update(reverse_edges)  # Add reverse edges
         
         for t in range(K):
             for u in range(n_nodes):

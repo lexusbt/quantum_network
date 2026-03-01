@@ -129,6 +129,7 @@ class GraphPreprocessor:
         method: str = "random_walk",
         seed: Optional[int] = None
     ) -> nx.Graph:
+        
         """
         Sample a connected subgraph of specified size
         
@@ -168,6 +169,7 @@ class GraphPreprocessor:
         # Relabel to 0..N-1
         subgraph = nx.convert_node_labels_to_integers(subgraph, first_label=0)
         
+        print(f"    ✓ Sampled successfully") 
         return subgraph
     
     def _sample_random_walk(self, G: nx.Graph, size: int) -> nx.Graph:
