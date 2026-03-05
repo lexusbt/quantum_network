@@ -36,7 +36,7 @@
     "min_degree": 1.0,
     "edge_connectivity": 1.0,
     "node_connectivity": 1.0,
-    "algebraic_connectivity": 0.06676194952464382
+    "algebraic_connectivity": 0.06676194952464379
   },
   "routing_features": {
     "path_length_k": 6.0,

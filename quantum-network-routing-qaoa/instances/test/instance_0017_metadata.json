@@ -19,7 +19,7 @@
     "n_nodes": 15.0,
     "n_edges": 26.0,
     "density": 0.24761904761904763,
-    "clustering_coefficient": 0.6133333333333334,
+    "clustering_coefficient": 0.6133333333333333,
     "transitivity": 0.7857142857142857,
     "avg_degree": 3.466666666666667,
     "diameter": 7.0,

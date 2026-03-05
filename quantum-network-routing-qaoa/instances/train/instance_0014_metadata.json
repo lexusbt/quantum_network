@@ -19,7 +19,7 @@
     "n_nodes": 10.0,
     "n_edges": 14.0,
     "density": 0.3111111111111111,
-    "clustering_coefficient": 0.6966666666666665,
+    "clustering_coefficient": 0.6966666666666667,
     "transitivity": 0.5806451612903226,
     "avg_degree": 2.8,
     "diameter": 4.0,
@@ -35,7 +35,7 @@
     "min_degree": 1.0,
     "edge_connectivity": 1.0,
     "node_connectivity": 1.0,
-    "algebraic_connectivity": 0.23708992677122553
+    "algebraic_connectivity": 0.2370899267712256
   },
   "routing_features": {
     "path_length_k": 6.0,

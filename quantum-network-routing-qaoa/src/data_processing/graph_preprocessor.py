@@ -258,7 +258,11 @@ class GraphPreprocessor:
             logger.info(f"Generating {samples_per_size} subgraphs of size {size}")
             subgraphs[size] = []
             
-            methods = ['random_walk', 'high_centrality', 'bfs']
+            if G.number_of_nodes() > 500:
+                methods = ['random_walk', 'bfs']  # Skip high_centrality
+                logger.info(f"Large graph detected, using only fast sampling methods: {methods}")
+            else:
+                methods = ['random_walk', 'high_centrality', 'bfs']
             
             for i in range(samples_per_size):
                 method = methods[i % len(methods)]
