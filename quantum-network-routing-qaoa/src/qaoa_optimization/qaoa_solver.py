@@ -49,7 +49,7 @@ class QAOASolver:
         
         # Set up backend
         if backend == "qasm_simulator":
-            self.backend = AerSimulator(method='automatic')
+            self.backend = AerSimulator(method='matrix_product_state')
         elif backend == "statevector_simulator":
             self.backend = AerSimulator(method='statevector')
         else:
