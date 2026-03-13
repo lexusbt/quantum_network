@@ -286,8 +286,14 @@ class IQMQAOASolver:
         result['instance_id'] = metadata['instance_id']
         result['dataset_name'] = metadata['dataset_name']
         result['classical_optimal'] = metadata['classical_optimal_length']
-        if metadata['classical_optimal_length'] > 0:
-            result['approximation_ratio'] = abs(result['best_cost']) / metadata['classical_optimal_length']
+        
+        #QUBO minimizes negative cost, classical is positive path length
+        if 'classical_optimal_length' in metadata and metadata['classical_optimal_length'] > 0:
+            # For routing: smaller absolute cost is better
+            # Approximation ratio should be close to 1.0 for good solutions
+            qaoa_cost = abs(result['best_cost'])
+            classical_cost = metadata['classical_optimal_length']
+            result['approximation_ratio'] = qaoa_cost / classical_cost if classical_cost > 0 else None
         else:
             result['approximation_ratio'] = None
         

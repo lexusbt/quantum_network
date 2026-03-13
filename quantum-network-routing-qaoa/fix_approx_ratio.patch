@@ -1,0 +1,16 @@
+# In src/qaoa_optimization/iqm_qaoa_solver.py
+# Find around line 285 in solve_instance():
+
+# OLD:
+result['approximation_ratio'] = result['best_cost'] / metadata['classical_optimal_length']
+
+# NEW:
+# Fix: QUBO minimizes negative cost, classical is positive path length
+if 'classical_optimal_length' in metadata and metadata['classical_optimal_length'] > 0:
+    # For routing: smaller absolute cost is better
+    # Approximation ratio should be close to 1.0 for good solutions
+    qaoa_cost = abs(result['best_cost'])
+    classical_cost = metadata['classical_optimal_length']
+    result['approximation_ratio'] = qaoa_cost / classical_cost if classical_cost > 0 else None
+else:
+    result['approximation_ratio'] = None
