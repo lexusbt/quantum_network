@@ -1,0 +1,9 @@
+{
+  "total_instances": 1,
+  "qubit_range": "16-16",
+  "avg_qubits": 16.0,
+  "avg_iterations": 15.0,
+  "avg_time": 147.24607586860657,
+  "total_time": 147.24607586860657,
+  "convergence_rate": 0.0
+}

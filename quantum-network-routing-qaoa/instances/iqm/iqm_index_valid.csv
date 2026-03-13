@@ -1,0 +1,6 @@
+instance_id,n_nodes,n_qubits,K,dataset_name,classical_optimal_length,split
+iqm_0000,4,16,3,ca-GrQc,1,iqm
+iqm_0001,4,16,3,ca-GrQc,2,iqm
+iqm_0002,4,16,3,ca-GrQc,1,iqm
+iqm_0003,4,16,3,ca-GrQc,1,iqm
+iqm_0004,4,16,3,ca-GrQc,1,iqm
